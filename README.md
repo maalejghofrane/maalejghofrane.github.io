@@ -42,6 +42,8 @@ legacy/                    previous React version of the site (kept for referenc
 - **Edit a text**: find its `data-i18n="key"` in `index.html`, then edit that key
   in all four languages in `assets/js/data/i18n.js`.
 - **Add a technology**: put `name.svg` in `assets/icons/`, add a line in `assets/js/data/skills.js`.
+  The Stack section shows 8 per page; change `PAGE_SIZE` in `assets/js/modules/stack.js`
+  (and the `min-height` values in `css/sections/stack.css`) to use another size.
 - **Add a language**: add a block in `i18n.js`, an `<option>` + flag `<symbol>` in `index.html`,
   and the code/name in `LANGS` in `assets/js/modules/lang.js`.
 - **Add a module**: create `assets/js/modules/x.js` registering `App.modules.x = { init }`,

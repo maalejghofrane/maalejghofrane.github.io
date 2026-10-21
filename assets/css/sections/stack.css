@@ -19,5 +19,28 @@
 .skill:hover .ico { transform: translateY(-2px) rotate(-4deg) scale(1.06); box-shadow: 0 12px 26px rgba(0, 98, 223, 0.35); }
 [data-theme="light"] .skill .ico { border: 1px solid var(--line); box-shadow: 0 4px 12px rgba(15, 39, 71, 0.12); }
 
-@media (min-width: 721px) { .stack-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (min-width: 980px) { .stack-grid { grid-template-columns: repeat(4, 1fr); } }
+/* Paged grid keeps the height of a full page (4 / 3 / 2 rows of ~9.4rem cards)
+   so the pager does not jump when the last page has fewer cards. */
+.stack-grid.is-paged { align-content: start; min-height: 40rem; }
+
+/* ---------- Pager ---------- */
+.pager { display: flex; align-items: center; justify-content: center; gap: 0.6rem; margin-top: 1.6rem; }
+.pager[hidden] { display: none; }
+.pg-list { display: flex; gap: 0.4rem; }
+.pg-btn, .pg-num {
+  display: grid; place-items: center; width: 42px; height: 42px; border-radius: 12px;
+  border: 1px solid var(--line); background: var(--card); color: var(--muted);
+  font-weight: 600; font-size: 0.92rem; transition: all 0.25s;
+}
+.pg-btn:hover:not(:disabled), .pg-num:hover { color: var(--text); border-color: var(--sky); transform: translateY(-2px); }
+.pg-num[aria-current="page"] { background: var(--blue); border-color: var(--blue); color: #fff; box-shadow: 0 8px 20px rgba(0, 98, 223, 0.4); }
+.pg-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+
+@media (min-width: 721px) {
+  .stack-grid { grid-template-columns: repeat(3, 1fr); }
+  .stack-grid.is-paged { min-height: 29.8rem; }
+}
+@media (min-width: 980px) {
+  .stack-grid { grid-template-columns: repeat(4, 1fr); }
+  .stack-grid.is-paged { min-height: 19.6rem; }
+}

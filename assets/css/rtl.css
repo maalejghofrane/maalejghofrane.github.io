@@ -17,6 +17,7 @@
 [dir="rtl"] .do-list li:hover, [dir="rtl"] .contact-links a:hover { transform: translateX(-4px); }
 [dir="rtl"] .p-num { right: auto; left: 1.3rem; }
 [dir="rtl"] .orbit { right: auto; left: 1.5rem; }
+[dir="rtl"] .pg-btn svg { transform: scaleX(-1); }
 [dir="rtl"] .scroll-hint { left: auto; right: 50%; transform: translateX(50%); }
 
 /* Timeline: line and dots move to the right edge */
