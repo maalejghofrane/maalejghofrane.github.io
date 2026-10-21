@@ -2,7 +2,7 @@
   var SLIDES = [
     { tag: "Backend", title: "APIs robustes avec Spring Boot & Django", text: "Conception d'API REST, sécurité, base de données et tests pour des applications fiables et évolutives.", img: "./assets/projectTwo-c07c40ce.jpg", stack: ["Spring Boot", "Django", "REST"] },
     { tag: "Frontend", title: "Interfaces modernes en Angular & React", text: "Des interfaces claires, responsives et accessibles, pensées pour une navigation simple sur mobile comme sur desktop.", img: "./assets/projectOne-db6ed5ff.jpg", stack: ["Angular", "React", "Tailwind"] },
-    { tag: "DevOps", title: "Déploiement avec Docker", text: "Conteneurisation et mise en production reproductible pour livrer plus vite et sans surprise.", img: "./assets/bannerImg-23ef4e66.png", stack: ["Docker", "CI/CD", "Linux"] }
+    { tag: "DevOps", title: "Déploiement avec Docker", text: "Conteneurisation et mise en production reproductible pour livrer plus vite et sans surprise.", img: "./assets/hero-portrait.png", stack: ["Docker", "CI/CD", "Linux"] }
   ];
 
   function dot(filled) {
