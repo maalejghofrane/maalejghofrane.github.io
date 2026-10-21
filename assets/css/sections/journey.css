@@ -1,0 +1,29 @@
+/* ==========================================================================
+   Journey — timeline. --p (0..1) is set from js/modules/timeline.js and
+   drives how much of the line is filled.
+   ========================================================================== */
+
+.timeline { --p: 0; position: relative; display: flex; flex-direction: column; gap: 1.2rem; padding-left: 1.8rem; }
+
+/* Track (::before) and filled progress (::after) */
+.timeline::before, .timeline::after { content: ""; position: absolute; left: 7px; top: 0.4rem; width: 2px; border-radius: 2px; }
+.timeline::before { bottom: 0.4rem; background: var(--line); }
+.timeline::after { height: calc((100% - 0.8rem) * var(--p)); background: linear-gradient(var(--blue), var(--sky)); box-shadow: 0 0 14px var(--sky); }
+
+.t-item { position: relative; animation: pop 0.45s ease both; }
+.t-item[hidden] { display: none; }
+.t-item::before { content: ""; position: absolute; left: -1.8rem; top: 0.35rem; z-index: 2; width: 16px; height: 16px; border-radius: 50%; background: var(--bg); border: 3px solid var(--sky); box-shadow: 0 0 0 5px rgba(53, 161, 255, 0.15); }
+.t-item time { display: block; margin-bottom: 0.5rem; font-family: var(--mono); font-size: 0.8rem; color: var(--sky); }
+
+.t-card { display: flex; flex-direction: column; gap: 0.5rem; padding: 1.3rem 1.4rem; }
+.t-card h3 { font-size: 1.1rem; line-height: 1.25; }
+.t-card p { color: var(--muted); font-size: 0.94rem; }
+
+/* Desktop: date column on the left, line at 150px */
+@media (min-width: 721px) {
+  .timeline { display: grid; gap: 1.6rem; padding-left: 0; }
+  .timeline::before, .timeline::after { left: 150px; }
+  .t-item { display: grid; grid-template-columns: 130px 1fr; column-gap: 2.6rem; }
+  .t-item::before { left: 143px; top: 0.4rem; }
+  .t-item time { margin: 0.25rem 0 0; text-align: right; }
+}

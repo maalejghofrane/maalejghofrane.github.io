@@ -1,0 +1,23 @@
+/* ==========================================================================
+   Stack — technology cards (rendered by js/modules/stack.js)
+   ========================================================================== */
+
+.stack-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+
+.skill { position: relative; display: flex; flex-direction: column; gap: 0.6rem; padding: 1.1rem; border-radius: 16px; animation: pop 0.45s ease both; }
+.skill:hover { transform: translateY(-4px); }
+.skill h3 { font-family: var(--font); font-size: 1rem; font-weight: 600; letter-spacing: 0; }
+.skill small { color: var(--muted); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* Logo tile: always white so every brand colour stays readable in both themes */
+.skill .ico {
+  display: grid; place-items: center; width: 52px; height: 52px; border-radius: 14px; background: #fff;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.skill .ico img { width: 32px; height: 32px; object-fit: contain; border-radius: 0; }
+.skill:hover .ico { transform: translateY(-2px) rotate(-4deg) scale(1.06); box-shadow: 0 12px 26px rgba(0, 98, 223, 0.35); }
+[data-theme="light"] .skill .ico { border: 1px solid var(--line); box-shadow: 0 4px 12px rgba(15, 39, 71, 0.12); }
+
+@media (min-width: 721px) { .stack-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 980px) { .stack-grid { grid-template-columns: repeat(4, 1fr); } }

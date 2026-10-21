@@ -1,0 +1,59 @@
+/* ==========================================================================
+   Design tokens — palette from soughefagency.netlify.app
+   Everything themeable lives here; other files only reference var(--*).
+   ========================================================================== */
+
+:root {
+  /* Brand */
+  --blue: #0062df;
+  --blue-dark: #004fb5;
+  --sky: #35a1ff;
+  --soft: #73baff;
+
+  /* Surfaces (dark theme = default) */
+  --bg: #07111f;
+  --bg-2: #0b1727;
+  --card: rgba(16, 31, 50, 0.55);
+  --card-solid: #101f32;
+  --line: rgba(255, 255, 255, 0.09);
+
+  /* Text */
+  --text: #e8f0fb;
+  --muted: #9fb3cc;
+
+  /* Shape & depth */
+  --radius: 18px;
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  --glow-blue: 0 10px 26px rgba(0, 98, 223, 0.4);
+
+  /* Ambient background */
+  --aurora-op: 0.55;
+
+  /* Typography */
+  --font: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --display: Sora, Inter, ui-sans-serif, system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --bg: #f3f8ff;
+  --bg-2: #ffffff;
+  --card: rgba(255, 255, 255, 0.72);
+  --card-solid: #ffffff;
+  --line: #dbe6f3;
+  --text: #101b2c;
+  --muted: #56677e;
+  --shadow: 0 18px 44px rgba(15, 39, 71, 0.1);
+  --aurora-op: 0.35;
+  --sky: #0062df;
+  --soft: #0062df;
+  color-scheme: light;
+}
+
+/* Arabic uses a dedicated font stack */
+[lang="ar"] {
+  --font: Cairo, Inter, ui-sans-serif, system-ui, sans-serif;
+  --display: Cairo, Sora, Inter, sans-serif;
+}

@@ -1,0 +1,21 @@
+/* ==========================================================================
+   Command palette (Ctrl/⌘ + K)
+   ========================================================================== */
+
+.palette {
+  position: fixed; inset: 0; z-index: 300; display: grid; justify-items: center; align-items: start;
+  padding: 14vh 1rem 1rem; background: rgba(3, 8, 16, 0.6);
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  animation: fade 0.2s ease;
+}
+.palette[hidden] { display: none; }
+
+.palette-box { width: min(100%, 600px); padding: 0.6rem; background: var(--card-solid); animation: rise 0.25s ease; }
+
+#paletteInput { width: 100%; padding: 1rem; border: 0; border-bottom: 1px solid var(--line); background: transparent; color: var(--text); font: inherit; font-size: 1.05rem; outline: none; }
+#paletteList { max-height: 50vh; overflow: auto; padding: 0.5rem 0; }
+#paletteList li { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.7rem 0.9rem; border-radius: 10px; cursor: pointer; color: var(--muted); }
+#paletteList li small { font-family: var(--mono); font-size: 0.72rem; opacity: 0.7; }
+#paletteList li[aria-selected="true"] { background: var(--blue); color: #fff; }
+
+.palette-foot { display: flex; align-items: center; gap: 0.4rem; padding: 0.6rem 0.9rem 0.3rem; font-size: 0.76rem; color: var(--muted); }

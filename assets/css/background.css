@@ -1,0 +1,36 @@
+/* ==========================================================================
+   Ambient background — aurora, grid, neural-network canvas, cursor glow,
+   scroll progress bar. All fixed, behind content, non-interactive.
+   ========================================================================== */
+
+.aurora { position: fixed; inset: 0; z-index: -3; overflow: hidden; pointer-events: none; }
+.aurora i { position: absolute; width: 55vmax; height: 55vmax; border-radius: 50%; filter: blur(90px); opacity: var(--aurora-op); animation: drift 22s ease-in-out infinite alternate; }
+.aurora i:nth-child(1) { background: radial-gradient(circle, #0062df, transparent 65%); top: -20vmax; right: -15vmax; }
+.aurora i:nth-child(2) { background: radial-gradient(circle, #35a1ff, transparent 65%); bottom: -25vmax; left: -20vmax; animation-delay: -8s; opacity: calc(var(--aurora-op) * 0.6); }
+.aurora i:nth-child(3) { background: radial-gradient(circle, #004fb5, transparent 65%); top: 35vh; left: 30vw; width: 35vmax; height: 35vmax; animation-delay: -14s; opacity: calc(var(--aurora-op) * 0.5); }
+@keyframes drift { to { transform: translate3d(6vmax, 5vmax, 0) scale(1.12); } }
+
+#net { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -2; pointer-events: none; }
+
+/* Subtle grid, faded out towards the edges */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none; opacity: 0.5;
+  background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 20%, #000 10%, transparent 70%);
+  mask-image: radial-gradient(ellipse at 50% 20%, #000 10%, transparent 70%);
+}
+
+.cursor-glow {
+  position: fixed; left: 0; top: 0; width: 420px; height: 420px; margin: -210px 0 0 -210px;
+  z-index: -1; pointer-events: none; opacity: 0; transition: opacity 0.4s; will-change: transform;
+  background: radial-gradient(circle, rgba(53, 161, 255, 0.16), transparent 65%);
+}
+.cursor-glow.on { opacity: 1; }
+@media (hover: none) { .cursor-glow { display: none; } }
+
+.progress {
+  position: fixed; top: 0; left: 0; z-index: 120; width: 100%; height: 3px;
+  transform-origin: left; transform: scaleX(0);
+  background: linear-gradient(90deg, var(--blue), var(--sky), var(--soft));
+}

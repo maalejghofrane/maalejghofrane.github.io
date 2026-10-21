@@ -1,0 +1,63 @@
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+
+.hero { position: relative; display: flex; align-items: center; min-height: 100svh; padding: 7rem 0; }
+.hero-grid { display: grid; gap: 3rem; align-items: center; }
+.hero-grid > * { min-width: 0; }
+
+/* ---------- Copy ---------- */
+.pulse { width: 9px; height: 9px; border-radius: 50%; background: #35e08f; box-shadow: 0 0 0 0 rgba(53, 224, 143, 0.6); animation: ping 2s infinite; }
+@keyframes ping { 70% { box-shadow: 0 0 0 10px rgba(53, 224, 143, 0); } 100% { box-shadow: 0 0 0 0 rgba(53, 224, 143, 0); } }
+
+.hello { display: block; margin-bottom: 0.6rem; color: var(--muted); font-size: clamp(1.1rem, 2.5vw, 1.5rem); font-weight: 500; letter-spacing: 0; }
+.name { display: block; font-size: clamp(2.4rem, 11vw, 5.6rem); font-weight: 800; letter-spacing: -0.045em; line-height: 1; }
+.name em {
+  display: block; font-style: normal;
+  background: linear-gradient(100deg, var(--sky), #9be0ff 60%, var(--soft));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+[data-theme="light"] .name em { background-image: linear-gradient(100deg, #0062df, #35a1ff); }
+
+.role { min-height: 1.3em; margin: 1.4rem 0 1rem; font-family: var(--display); font-size: clamp(1.25rem, 3vw, 1.9rem); font-weight: 600; }
+#typed { color: var(--sky); }
+.caret { display: inline-block; width: 3px; height: 1.1em; margin-left: 4px; vertical-align: -0.15em; background: var(--sky); animation: blink 1s steps(1) infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+
+.cta { display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 2rem 0 1.8rem; }
+.socials { display: flex; gap: 0.6rem; }
+.socials a { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 13px; border: 1px solid var(--line); background: var(--card); color: var(--muted); transition: all 0.25s; }
+.socials a:hover { background: var(--blue); color: #fff; border-color: var(--sky); transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0, 98, 223, 0.45); }
+
+/* ---------- Visual: portrait + code card ---------- */
+.hero-visual { position: relative; display: grid; place-items: center; padding: 1rem 0 3rem; }
+.portrait {
+  position: relative; width: min(78vw, 420px); aspect-ratio: 1; border-radius: 32px;
+  background: linear-gradient(160deg, #ffffff, #dcecff 70%, #bcdcff);
+  box-shadow: 0 30px 70px rgba(0, 98, 223, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+  transform-style: preserve-3d; transition: transform 0.2s ease-out;
+}
+.portrait img { width: 100%; height: 100%; object-fit: cover; border-radius: inherit; mix-blend-mode: multiply; }
+.portrait-ring { position: absolute; inset: -14px; border-radius: 42px; border: 1px dashed rgba(53, 161, 255, 0.5); animation: spin 40s linear infinite; pointer-events: none; }
+
+.code-card { position: absolute; left: 0; bottom: -0.5rem; display: none; padding: 0.9rem 1.1rem 1rem; border-radius: 16px; font-family: var(--mono); font-size: 0.74rem; line-height: 1.55; }
+.code-card pre { margin: 0; white-space: pre; }
+.code-dots { display: flex; gap: 5px; margin-bottom: 0.5rem; }
+.code-dots i { width: 8px; height: 8px; border-radius: 50%; background: #ff5f57; }
+.code-dots i:nth-child(2) { background: #febc2e; }
+.code-dots i:nth-child(3) { background: #28c840; }
+.k { color: #c792ea; } .v { color: var(--soft); } .p { color: #82aaff; } .s { color: #c3e88d; }
+[data-theme="light"] .k { color: #7b3fb5; } [data-theme="light"] .p { color: #0062df; } [data-theme="light"] .s { color: #1f8a3b; } [data-theme="light"] .v { color: #004fb5; }
+
+/* ---------- Scroll hint (desktop only) ---------- */
+.scroll-hint { position: absolute; left: 50%; bottom: 6.2rem; display: none; width: 26px; height: 42px; border: 2px solid var(--muted); border-radius: 14px; transform: translateX(-50%); opacity: 0.6; }
+.scroll-hint span { position: absolute; left: 50%; top: 8px; width: 4px; height: 8px; margin-left: -2px; border-radius: 2px; background: var(--sky); animation: wheel 1.8s infinite; }
+@keyframes wheel { 0% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(14px); } }
+
+@media (min-width: 721px) {
+  .scroll-hint { display: block; }
+}
+@media (min-width: 980px) {
+  .hero-grid { grid-template-columns: 1.15fr 0.85fr; gap: 4rem; }
+  .code-card { display: block; }
+}

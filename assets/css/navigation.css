@@ -1,0 +1,74 @@
+/* ==========================================================================
+   Navigation — top bar (brand, search, language, theme) and bottom dock
+   ========================================================================== */
+
+/* ---------- Top bar ---------- */
+.topbar {
+  position: fixed; inset: 0 0 auto 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0.9rem clamp(1rem, 3vw, 2rem); pointer-events: none;
+}
+.topbar > * { pointer-events: auto; }
+.top-actions { display: flex; gap: 0.5rem; }
+
+.brand { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--display); font-weight: 700; }
+.brand-mark { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(135deg, var(--blue), var(--sky)); color: #fff; font-size: 0.85rem; box-shadow: 0 8px 22px rgba(0, 98, 223, 0.45); }
+.brand-name b { color: var(--sky); }
+
+/* Theme toggle shows the icon of the theme you would switch to */
+.i-sun { display: none; }
+[data-theme="light"] .i-sun { display: block; }
+[data-theme="light"] .i-moon { display: none; }
+
+/* ---------- Language menu ---------- */
+.lang { position: relative; }
+.lang-btn {
+  display: inline-flex; align-items: center; gap: 0.55rem; height: 42px; padding: 0 0.7rem;
+  border-radius: 12px; border: 1px solid var(--line); background: var(--card);
+  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  color: var(--muted); font-size: 0.88rem; transition: border-color 0.2s, color 0.2s;
+}
+.lang-btn:hover, .lang-btn[aria-expanded="true"] { color: var(--text); border-color: var(--sky); }
+.lang-btn .chev { width: 14px; height: 14px; transition: transform 0.2s; }
+.lang-btn[aria-expanded="true"] .chev { transform: rotate(180deg); }
+
+.lang-menu {
+  position: absolute; top: calc(100% + 8px); inset-inline-end: 0; z-index: 130; min-width: 11rem; padding: 0.35rem;
+  border-radius: 14px; border: 1px solid var(--line); background: var(--card-solid); box-shadow: var(--shadow);
+  animation: rise 0.18s ease;
+}
+.lang-menu[hidden] { display: none; }
+.lang-menu button { display: flex; align-items: center; gap: 0.7rem; width: 100%; padding: 0.6rem 0.75rem; border: 0; border-radius: 9px; background: transparent; color: var(--muted); font-size: 0.92rem; text-align: start; }
+.lang-menu button:hover, .lang-menu button:focus-visible { background: rgba(53, 161, 255, 0.14); color: var(--text); outline: none; }
+.lang-menu button[aria-selected="true"] { color: #fff; background: var(--blue); }
+
+/* Flags are drawn with the <symbol>s declared at the top of index.html */
+.flag {
+  width: 24px; height: 16px; flex: none; fill: none; stroke: none; border-radius: 3px;
+  shape-rendering: geometricPrecision;
+  box-shadow: 0 0 0 1px rgba(128, 144, 166, 0.45), 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------- Dock ---------- */
+.dock {
+  position: fixed; left: 50%; bottom: 1.1rem; z-index: 100; transform: translateX(-50%);
+  display: flex; gap: 0.2rem; max-width: calc(100vw - 1.5rem); padding: 0.4rem;
+  border-radius: 20px; border: 1px solid var(--line); background: var(--card);
+  -webkit-backdrop-filter: blur(18px) saturate(160%); backdrop-filter: blur(18px) saturate(160%);
+  box-shadow: var(--shadow);
+}
+.dock a {
+  position: relative; display: flex; align-items: center; gap: 0.5rem; height: 46px; padding: 0 0.85rem;
+  border-radius: 14px; color: var(--muted); font-size: 0.88rem; font-weight: 500;
+  transition: color 0.25s, background 0.25s, transform 0.25s;
+}
+.dock a:hover { color: var(--text); transform: translateY(-3px); }
+.dock a.active { color: #fff; background: linear-gradient(135deg, var(--blue), var(--sky)); box-shadow: 0 8px 22px rgba(0, 98, 223, 0.45); }
+
+/* ---------- Small screens: icons only ---------- */
+@media (max-width: 720px) {
+  .chip-btn span, .chip-btn kbd, .brand-name, .lang-name, .dock a span { display: none; }
+  .chip-btn:not(.icon) { width: 42px; padding: 0; justify-content: center; }
+  .lang-btn { padding: 0 0.6rem; gap: 0.4rem; }
+  .dock a { padding: 0 0.8rem; }
+}

@@ -1,0 +1,55 @@
+/* ==========================================================================
+   Base — reset, typography, accessibility, layout primitives
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  line-height: 1.65;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; margin: 0; padding: 0; }
+h1, h2, h3, p { margin: 0; }
+h1, h2, h3 { font-family: var(--display); letter-spacing: -0.03em; line-height: 1.1; overflow-wrap: break-word; }
+button { font: inherit; color: inherit; cursor: pointer; }
+::selection { background: var(--blue); color: #fff; }
+
+kbd {
+  font-family: var(--mono); font-size: 0.72rem; padding: 2px 6px;
+  border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 6px;
+  background: var(--card); color: var(--muted);
+}
+
+/* Icons: every inline <svg> is a 20px stroke icon unless a component says otherwise */
+svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Accessibility */
+:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; border-radius: 8px; }
+.skip { position: fixed; left: 1rem; top: -4rem; z-index: 200; background: var(--blue); color: #fff; padding: 0.6rem 1rem; border-radius: 10px; }
+.skip:focus { top: 1rem; }
+
+/* Layout primitives */
+.wrap { width: min(100% - 2rem, 1180px); margin-inline: auto; }
+.wrap.narrow { width: min(100% - 2rem, 860px); }
+.section { position: relative; padding: clamp(4.5rem, 10vw, 8rem) 0; }
+
+/* Text helpers */
+.muted { color: var(--muted); }
+.lead { color: var(--muted); font-size: clamp(1rem, 1.5vw, 1.12rem); max-width: 58ch; }
+.grad {
+  background: linear-gradient(100deg, var(--sky), var(--soft) 45%, #9be0ff);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+[data-theme="light"] .grad { background-image: linear-gradient(100deg, #0062df, #35a1ff); }

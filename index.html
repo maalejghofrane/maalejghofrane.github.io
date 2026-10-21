@@ -10,44 +10,58 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./assets/site.css" />
+  <link rel="stylesheet" href="./assets/css/tokens.css" />
+  <link rel="stylesheet" href="./assets/css/base.css" />
+  <link rel="stylesheet" href="./assets/css/background.css" />
+  <link rel="stylesheet" href="./assets/css/components.css" />
+  <link rel="stylesheet" href="./assets/css/navigation.css" />
+  <link rel="stylesheet" href="./assets/css/palette.css" />
+  <link rel="stylesheet" href="./assets/css/sections/hero.css" />
+  <link rel="stylesheet" href="./assets/css/sections/about.css" />
+  <link rel="stylesheet" href="./assets/css/sections/stack.css" />
+  <link rel="stylesheet" href="./assets/css/sections/projects.css" />
+  <link rel="stylesheet" href="./assets/css/sections/journey.css" />
+  <link rel="stylesheet" href="./assets/css/sections/contact.css" />
+  <link rel="stylesheet" href="./assets/css/rtl.css" />
+  <link rel="stylesheet" href="./assets/css/motion.css" />
   <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
 <body>
+  <!-- Flag sprite for the language menu (referenced with <use href="#flag-xx">) -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <defs>
-    <clipPath id="uk-s"><path d="M0,0H60V30H0z"/></clipPath>
-    <clipPath id="uk-t"><path d="M30,15H60V30zM30,15V30H0zM30,15H0V0zM30,15V0H60z"/></clipPath>
-  </defs>
-  <!-- United Kingdom (official 1:2 flag, cropped to 3:2) -->
-  <symbol id="flag-en" viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice">
-    <g clip-path="url(#uk-s)">
-      <path d="M0,0H60V30H0z" fill="#012169"/>
-      <path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/>
-      <path d="M0,0L60,30M60,0L0,30" clip-path="url(#uk-t)" stroke="#C8102E" stroke-width="4"/>
-      <path d="M30,0V30M0,15H60" stroke="#fff" stroke-width="10"/>
-      <path d="M30,0V30M0,15H60" stroke="#C8102E" stroke-width="6"/>
-    </g>
-  </symbol>
-  <!-- France (3:2) -->
-  <symbol id="flag-fr" viewBox="0 0 3 2">
-    <rect width="3" height="2" fill="#fff"/>
-    <rect width="1" height="2" fill="#0055A4"/>
-    <rect x="2" width="1" height="2" fill="#EF4135"/>
-  </symbol>
-  <!-- Tunisia (3:2): white disc = half the height, red crescent + star -->
-  <symbol id="flag-ar" viewBox="0 0 30 20">
-    <rect width="30" height="20" fill="#E70013"/>
-    <circle cx="15" cy="10" r="5" fill="#fff"/>
-    <circle cx="15" cy="10" r="3.75" fill="#E70013"/>
-    <circle cx="15.8" cy="10" r="3" fill="#fff"/>
-    <polygon points="16.100,8.150 16.515,9.428 17.859,9.428 16.772,10.218 17.187,11.497 16.100,10.707 15.013,11.497 15.428,10.218 14.341,9.428 15.685,9.428" fill="#E70013"/>
-  </symbol>
-  <!-- Spain (3:2): red / yellow / red = 1:2:1 -->
-  <symbol id="flag-es" viewBox="0 0 3 2">
-    <rect width="3" height="2" fill="#AA151B"/>
-    <rect y="0.5" width="3" height="1" fill="#F1BF00"/>
-  </symbol>
+    <defs>
+      <clipPath id="uk-s"><path d="M0,0H60V30H0z"/></clipPath>
+      <clipPath id="uk-t"><path d="M30,15H60V30zM30,15V30H0zM30,15H0V0zM30,15V0H60z"/></clipPath>
+    </defs>
+    <!-- United Kingdom (official 1:2 flag, cropped to 3:2) -->
+    <symbol id="flag-en" viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice">
+      <g clip-path="url(#uk-s)">
+        <path d="M0,0H60V30H0z" fill="#012169"/>
+        <path d="M0,0L60,30M60,0L0,30" stroke="#fff" stroke-width="6"/>
+        <path d="M0,0L60,30M60,0L0,30" clip-path="url(#uk-t)" stroke="#C8102E" stroke-width="4"/>
+        <path d="M30,0V30M0,15H60" stroke="#fff" stroke-width="10"/>
+        <path d="M30,0V30M0,15H60" stroke="#C8102E" stroke-width="6"/>
+      </g>
+    </symbol>
+    <!-- France (3:2) -->
+    <symbol id="flag-fr" viewBox="0 0 3 2">
+      <rect width="3" height="2" fill="#fff"/>
+      <rect width="1" height="2" fill="#0055A4"/>
+      <rect x="2" width="1" height="2" fill="#EF4135"/>
+    </symbol>
+    <!-- Tunisia (3:2): white disc = half the height, red crescent + star -->
+    <symbol id="flag-ar" viewBox="0 0 30 20">
+      <rect width="30" height="20" fill="#E70013"/>
+      <circle cx="15" cy="10" r="5" fill="#fff"/>
+      <circle cx="15" cy="10" r="3.75" fill="#E70013"/>
+      <circle cx="15.8" cy="10" r="3" fill="#fff"/>
+      <polygon points="16.100,8.150 16.515,9.428 17.859,9.428 16.772,10.218 17.187,11.497 16.100,10.707 15.013,11.497 15.428,10.218 14.341,9.428 15.685,9.428" fill="#E70013"/>
+    </symbol>
+    <!-- Spain (3:2): red / yellow / red = 1:2:1 -->
+    <symbol id="flag-es" viewBox="0 0 3 2">
+      <rect width="3" height="2" fill="#AA151B"/>
+      <rect y="0.5" width="3" height="1" fill="#F1BF00"/>
+    </symbol>
 </svg>
   <a class="skip" href="#main">Skip to content</a>
   <div class="progress" aria-hidden="true"></div>
@@ -120,7 +134,7 @@
         <div class="hero-visual reveal">
           <div class="portrait tilt" data-tilt="10">
             <div class="portrait-ring"></div>
-            <img src="./assets/bannerImg-23ef4e66.png" alt="Portrait of MAALEJ Ghofrane" width="720" height="720" />
+            <img src="./assets/img/portrait.png" alt="Portrait of MAALEJ Ghofrane" width="720" height="720" />
           </div>
           <div class="code-card glass spot" aria-hidden="true">
             <div class="code-dots"><i></i><i></i><i></i></div>
@@ -215,7 +229,7 @@
 
         <div class="projects">
           <article class="project glass spot tilt reveal" data-tilt="5">
-            <div class="p-img"><img src="./assets/projectTwo-c07c40ce.jpg" alt="Grade management project" loading="lazy" /></div>
+            <div class="p-img"><img src="./assets/img/project-mobile.jpg" alt="Grade management project" loading="lazy" /></div>
             <div class="p-body">
               <span class="p-num">01</span>
               <h3 data-i18n="proj.1t">Grade management</h3>
@@ -224,7 +238,7 @@
             </div>
           </article>
           <article class="project glass spot tilt reveal" data-tilt="5">
-            <div class="p-img"><img src="./assets/projectOne-db6ed5ff.jpg" alt="Training management project" loading="lazy" /></div>
+            <div class="p-img"><img src="./assets/img/project-workout.jpg" alt="Training management project" loading="lazy" /></div>
             <div class="p-body">
               <span class="p-num">02</span>
               <h3 data-i18n="proj.2t">Training management</h3>
@@ -233,7 +247,7 @@
             </div>
           </article>
           <article class="project glass spot tilt reveal" data-tilt="5">
-            <div class="p-img"><img src="./assets/projectTwo-c07c40ce.jpg" alt="World Cup project" loading="lazy" /></div>
+            <div class="p-img"><img src="./assets/img/project-mobile.jpg" alt="World Cup project" loading="lazy" /></div>
             <div class="p-body">
               <span class="p-num">03</span>
               <h3 data-i18n="proj.3t">World Cup</h3>
@@ -371,7 +385,22 @@
     </div>
   </div>
 
-  <script src="./assets/i18n.js"></script>
-  <script src="./assets/site.js" defer></script>
+  <!-- Scripts run in this order (defer keeps order): data, core, modules, boot -->
+  <script src="./assets/js/data/i18n.js" defer></script>
+  <script src="./assets/js/data/site.js" defer></script>
+  <script src="./assets/js/data/skills.js" defer></script>
+  <script src="./assets/js/core.js" defer></script>
+  <script src="./assets/js/modules/lang.js" defer></script>
+  <script src="./assets/js/modules/theme.js" defer></script>
+  <script src="./assets/js/modules/typing.js" defer></script>
+  <script src="./assets/js/modules/stack.js" defer></script>
+  <script src="./assets/js/modules/timeline.js" defer></script>
+  <script src="./assets/js/modules/effects.js" defer></script>
+  <script src="./assets/js/modules/reveal.js" defer></script>
+  <script src="./assets/js/modules/scroll.js" defer></script>
+  <script src="./assets/js/modules/network.js" defer></script>
+  <script src="./assets/js/modules/palette.js" defer></script>
+  <script src="./assets/js/modules/contact.js" defer></script>
+  <script src="./assets/js/main.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,32 @@
+/* ==========================================================================
+   Right-to-left (Arabic). Only what logical properties cannot express.
+   ========================================================================== */
+
+/* Letter-spacing and uppercase break Arabic letter joining */
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] .name, [dir="rtl"] .eyebrow, [dir="rtl"] .brand { letter-spacing: 0; }
+[dir="rtl"] .eyebrow { text-transform: none; }
+
+/* Latin-only content stays left-to-right */
+[dir="rtl"] .code-card pre, [dir="rtl"] .contact-links a, [dir="rtl"] .brand, [dir="rtl"] .p-num, [dir="rtl"] kbd { direction: ltr; unicode-bidi: isolate; }
+[dir="rtl"] .contact-links a { text-align: left; }
+[dir="rtl"] .badge { direction: rtl; }
+
+/* Mirror directional cues */
+[dir="rtl"] .arr { transform: scaleX(-1); }
+[dir="rtl"] .btn:hover .arr { transform: scaleX(-1) translateX(4px); }
+[dir="rtl"] .do-list li:hover, [dir="rtl"] .contact-links a:hover { transform: translateX(-4px); }
+[dir="rtl"] .p-num { right: auto; left: 1.3rem; }
+[dir="rtl"] .orbit { right: auto; left: 1.5rem; }
+[dir="rtl"] .scroll-hint { left: auto; right: 50%; transform: translateX(50%); }
+
+/* Timeline: line and dots move to the right edge */
+[dir="rtl"] .timeline { padding-left: 0; padding-right: 1.8rem; }
+[dir="rtl"] .timeline::before, [dir="rtl"] .timeline::after { left: auto; right: 7px; }
+[dir="rtl"] .t-item::before { left: auto; right: -1.8rem; }
+
+@media (min-width: 721px) {
+  [dir="rtl"] .timeline { padding-right: 0; }
+  [dir="rtl"] .timeline::before, [dir="rtl"] .timeline::after { left: auto; right: 150px; }
+  [dir="rtl"] .t-item::before { left: auto; right: 143px; }
+  [dir="rtl"] .t-item time { text-align: left; }
+}
