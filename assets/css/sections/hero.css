@@ -19,7 +19,7 @@
 }
 [data-theme="light"] .name em { background-image: linear-gradient(100deg, #0062df, #35a1ff); }
 
-.role { min-height: 1.3em; margin: 1.4rem 0 1rem; font-family: var(--display); font-size: clamp(1.25rem, 3vw, 1.9rem); font-weight: 600; }
+.role { min-height: 1.3em; margin: 1.4rem 0 1rem; font-family: var(--display); font-size: clamp(1.25rem, 3vw, 1.9rem); font-weight: 600; overflow-wrap: break-word; word-break: break-word; }
 #typed { color: var(--sky); }
 .caret { display: inline-block; width: 3px; height: 1.1em; margin-left: 4px; vertical-align: -0.15em; background: var(--sky); animation: blink 1s steps(1) infinite; }
 @keyframes blink { 50% { opacity: 0; } }

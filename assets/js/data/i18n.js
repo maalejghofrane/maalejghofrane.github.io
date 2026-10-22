@@ -51,7 +51,7 @@ window.I18N = {
     "hero.eyebrow": "Full Stack & AI Engineer", "hero.hi": "Bonjour, je suis", "hero.build": "Je crée",
     "hero.lead": "Ingénieur Full Stack & IA, fort de 4 ans d'expérience dans la conception de produits Web & Mobile robustes et dans la mise de l'intelligence artificielle au service de résultats concrets. De l'idée au déploiement, je livre vite et bien, et je suis prêt à apporter ce niveau d'exigence à votre prochain projet.",
     "hero.cta1": "Voir mes projets", "hero.cta2": "Parlons-en",
-    "roles": ["des API robustes.", "des applications web modernes.", "des expériences mobiles.", "des fonctionnalités d'IA intelligentes.", "des pipelines DevOps fiables."],
+    "roles": ["des API robustes.", "des applications web modernes.", "des applications mobiles.", "des fonctionnalités d'IA intelligentes.", "des pipelines DevOps fiables."],
     "about.eyebrow": "À propos", "about.h2": "Ingénierie de formation,<br /><span class=\"grad\">création par passion.</span>",
     "about.who": "Qui je suis",
     "about.bio": "Ingénieur Full Stack & IA, fort de 4 ans d'expérience dans la conception de produits Web & Mobile robustes et dans la mise de l'intelligence artificielle au service de résultats concrets. De l'idée au déploiement, je livre vite et bien, et je suis prêt à apporter ce niveau d'exigence à votre prochain projet.",
