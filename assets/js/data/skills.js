@@ -1,6 +1,7 @@
 /* Technologies shown in the Stack section.
-   cat  : category id, also the key suffix of "lab.<cat>" in i18n.js
-   icon : file name (without extension) in assets/icons/
+   cat    : category id, also the key suffix of "lab.<cat>" in i18n.js
+   icon   : file name (without extension) in assets/icons/
+   label  : optional i18n key overriding the card's small label (defaults to "lab.<cat>")
    To add a technology: drop its SVG in assets/icons/ and add a line here. */
 window.SKILLS = [
   { name: "Spring Boot",      cat: "backend",  icon: "spring-boot" },
@@ -10,6 +11,7 @@ window.SKILLS = [
 
   { name: "Angular",          cat: "frontend", icon: "angular" },
   { name: "React JS",         cat: "frontend", icon: "react" },
+  { name: "Next.js",          cat: "frontend", icon: "nextjs" },
 
   { name: "WordPress",        cat: "cms",      icon: "wordpress" },
   { name: "PrestaShop",       cat: "cms",      icon: "prestashop" },
@@ -27,5 +29,5 @@ window.SKILLS = [
   { name: "Figma",            cat: "design",   icon: "figma" },
   { name: "Photoshop",        cat: "design",   icon: "photoshop" },
   { name: "Illustrator",      cat: "design",   icon: "illustrator" },
-  { name: "Montage",          cat: "design",   icon: "premiere" }
+  { name: "Adobe Premiere Pro", cat: "design", icon: "premiere" }
 ];

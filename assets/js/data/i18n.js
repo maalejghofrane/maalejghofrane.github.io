@@ -75,7 +75,7 @@ window.I18N = {
     "j4.time": "Juil – Août 2021", "j4.badge": "Devnet Tunisie · Stage d'été", "j4.title": "Application web et mobile FIFO",
     "j5.time": "Janv – Mai 2020", "j5.badge": "Devnet Tunisie · Stage de fin d'études", "j5.title": "Maintenance et évolution d'une plateforme communautaire",
     "j6.time": "2017 – 2020", "j6.badge": "École Supérieure d'Économie Numérique de la Manouba", "j6.title": "Licence appliquée en informatique de gestion", "j6.honor": "Major de promotion", "j6.p": "Spécialité e-commerce",
-    "j7.time": "Juil 2019", "j7.badge": "Talan Tunisie · Stage d'été", "j7.title": "Site de gestion des astreintes pour les employés d'une entreprise",
+    "j7.time": "Juil 2019", "j7.badge": "Talan Tunisie · Stage d'été", "j7.title": "Plateforme de gestion des astreintes en entreprise",
     "j8.time": "2013 – 2017", "j8.badge": "Lycée El Menzah 9", "j8.title": "Baccalauréat, Mathématiques",
     "ct.eyebrow": "Contact", "ct.h2": "Un projet en tête ?<br /><span class=\"grad\">Construisons-le.</span>",
     "ct.lead": "Écrivez-moi quelques lignes : votre message s'ouvre dans votre application mail, prêt à être envoyé.",
