@@ -33,6 +33,8 @@ assets/
     main.js                boots the modules in order
   img/                     portrait + project images
   icons/                   technology logos (SVG)
+  logos/                   company / school logos of the Journey timeline
+                           light/ = transparent PNGs (light theme), dark/ = white-background files (dark theme)
 legacy/                    previous React version of the site (kept for reference)
 ```
 

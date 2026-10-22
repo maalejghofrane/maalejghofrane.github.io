@@ -18,10 +18,92 @@
 .t-item time { display: block; margin-bottom: 0.5rem; font-family: var(--mono); font-size: 0.8rem; color: var(--sky); }
 
 .t-card { display: flex; flex-direction: column; gap: 0.5rem; padding: 1.3rem 1.4rem; }
+/* Header row: organisation logo + badge/title. Dark theme: every logo sits on a white
+   96x52 tile (dark text / transparent PNGs stay readable). Light theme: no tile. */
+.t-head { display: flex; align-items: center; gap: 0.9rem; }
+.t-titles { display: flex; flex-direction: column; align-items: flex-start; gap: 0.45rem; min-width: 0; }
+.org-logo {
+  flex: none; display: grid; grid-template: 100% / 100%; place-items: center; width: 96px; height: 52px; padding: 8px 10px;
+  border-radius: 12px; background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+  transition: transform 0.3s ease;
+}
+.org-logo img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 0; }
+
+/* Theme-specific logo files (class has-variants): the dark theme shows .logo-dark
+   (files with their own white background, filling the whole tile); the light theme
+   shows .logo-light (transparent PNGs). Switching is pure CSS, no JavaScript. */
+.org-logo .logo-light { display: none; }
+.org-logo.has-variants { padding: 0; overflow: hidden; }
+.org-logo .logo-dark { width: 100%; height: 100%; max-width: none; max-height: none; }
+.org-logo .logo-dark.fit-cover { object-fit: cover; }
+.org-logo .logo-dark.fit-contain { object-fit: contain; }
+[data-theme="light"] .org-logo .logo-dark { display: none; }
+[data-theme="light"] .org-logo .logo-light { display: block; }
+[data-theme="light"] .org-logo.has-variants { overflow: visible; }
+.t-card:hover .org-logo { transform: translateY(-2px) scale(1.04); }
+/* Light theme: the card is already light, so logos sit directly on it, aligned
+   with the text edge (no white tile). */
+[data-theme="light"] .org-logo { place-items: center start; padding-inline: 0; background: transparent; box-shadow: none; }
 .t-card h3 { font-size: 1.1rem; line-height: 1.25; }
 .t-card p { color: var(--muted); font-size: 0.94rem; }
 
+/* Education meta row: honor distinction + specialty, pulled out of the body
+   text as badges so both read at a glance instead of hiding in a sentence. */
+.edu-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-top: 0.25rem; }
+
+.honor {
+  display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem 0.3rem 0.6rem;
+  border-radius: 999px; font-size: 0.8rem; font-weight: 600; color: #7a5200;
+  background: linear-gradient(135deg, #ffd978, #ffb92e); box-shadow: 0 3px 10px rgba(255, 185, 46, 0.35);
+}
+.honor svg { width: 15px; height: 15px; flex: none; fill: none; stroke: #7a5200; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+.specialty {
+  display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.3rem 0.75rem 0.3rem 0.6rem;
+  border-radius: 999px; font-size: 0.8rem; font-weight: 600; color: var(--sky);
+  background: rgba(53, 161, 255, 0.12); border: 1px solid rgba(53, 161, 255, 0.3);
+}
+.specialty svg { width: 15px; height: 15px; flex: none; fill: none; stroke: var(--sky); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Client engagements: a visually separated sub-section of the current-role
+   card, set off by a top divider so it reads as "details inside the card"
+   rather than a continuation of the same paragraph flow. */
+.t-engagements { margin-top: 1rem; padding-top: 1.1rem; border-top: 1px solid var(--line); }
+.t-clients-label { display: block; margin-bottom: 0.9rem; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--sky); }
+
+/* Mini timeline of clients: logo + name, strung along a vertical line. Each
+   entry is its own soft card so the eye can parse one client at a time. */
+.sub-timeline { position: relative; display: flex; flex-direction: column; gap: 1.1rem; padding-left: 2rem; }
+.sub-timeline::before { content: ""; position: absolute; left: 6px; top: 24px; bottom: 24px; width: 2px; border-radius: 2px; background: var(--line); }
+.sub-timeline > li {
+  position: relative; padding: 0.8rem 1.1rem;
+  border-radius: 14px; border: 1px solid var(--line); background: rgba(128, 144, 166, 0.06);
+}
+.sub-timeline > li::before { content: ""; position: absolute; left: -2rem; top: 24px; transform: translateY(-50%); width: 12px; height: 12px; border-radius: 50%; background: var(--bg); border: 3px solid var(--sky); box-shadow: 0 0 0 4px rgba(53, 161, 255, 0.15); }
+
+.sub-head { display: flex; align-items: center; gap: 1rem; }
+.sub-logo { flex: none; display: grid; place-items: center; width: 84px; height: 48px; padding: 7px 9px; border-radius: 10px; background: #fff; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); transition: transform 0.25s ease; }
+.sub-logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.sub-timeline > li:hover .sub-logo { transform: translateY(-2px) scale(1.04); }
+.sub-org { font-size: 1rem; font-weight: 700; color: var(--text); }
+
+@media (max-width: 720px) {
+  .sub-timeline { padding-left: 1.6rem; }
+  .sub-timeline > li::before { left: -1.6rem; }
+}
+
+@media (max-width: 720px) {
+  .sub-timeline { padding-left: 1.6rem; }
+  .sub-timeline > li::before { left: -1.6rem; }
+  .sub-head { flex-wrap: wrap; }
+}
+
 /* Desktop: date column on the left, line at 150px */
+@media (max-width: 720px) {
+  .org-logo { width: 80px; height: 46px; padding: 6px 8px; }
+}
+
 @media (min-width: 721px) {
   .timeline { display: grid; gap: 1.6rem; padding-left: 0; }
   .timeline::before, .timeline::after { left: 150px; }

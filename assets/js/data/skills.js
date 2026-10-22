@@ -10,8 +10,9 @@ window.SKILLS = [
 
   { name: "Angular",          cat: "frontend", icon: "angular" },
   { name: "React JS",         cat: "frontend", icon: "react" },
-  { name: "WordPress",        cat: "frontend", icon: "wordpress" },
-  { name: "PrestaShop",       cat: "frontend", icon: "prestashop" },
+
+  { name: "WordPress",        cat: "cms",      icon: "wordpress" },
+  { name: "PrestaShop",       cat: "cms",      icon: "prestashop" },
 
   { name: "React Native",     cat: "mobile",   icon: "react-native" },
   { name: "Ionic React",      cat: "mobile",   icon: "ionic" },
@@ -26,5 +27,5 @@ window.SKILLS = [
   { name: "Figma",            cat: "design",   icon: "figma" },
   { name: "Photoshop",        cat: "design",   icon: "photoshop" },
   { name: "Illustrator",      cat: "design",   icon: "illustrator" },
-  { name: "Premiere Pro",     cat: "design",   icon: "premiere" }
+  { name: "Montage",          cat: "design",   icon: "premiere" }
 ];

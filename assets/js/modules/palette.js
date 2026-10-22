@@ -12,7 +12,7 @@
     ["cmd.home",     "#home",     goTo("home")],
     ["cmd.about",    "#about",    goTo("about")],
     ["cmd.stack",    "#stack",    goTo("stack")],
-    ["cmd.projects", "#projects", goTo("projects")],
+    /* "projects" command disabled while the Projects section is commented out in index.html */
     ["cmd.journey",  "#journey",  goTo("journey")],
     ["cmd.contact",  "#contact",  goTo("contact")],
     ["cmd.theme",    "theme",     function () { App.modules.theme.toggle(); }],
